@@ -28,6 +28,7 @@ class PagesController extends PagesAppController {
 		'Pages.LanguagesPage',
 		'Rooms.PluginsRoom',
 		'M17n.Language',
+		'Containerd.Container'
 	);
 
 /**
