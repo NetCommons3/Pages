@@ -77,6 +77,8 @@ class PagesController extends PagesAppController {
 		$paths = func_get_args();
 		$path = implode('/', $paths);
 
+		debug($paths);
+		debug($path);
 		$page = $this->Page->getPageWithFrame($path);
 		if (empty($page)) {
 			throw new NotFoundException();
