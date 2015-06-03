@@ -46,7 +46,6 @@ class PagesControllerTest extends YAControllerTestCase {
 		'plugin.rooms.room',
 		'plugin.rooms.room_role_permission',
 		'plugin.users.user',
-		'plugin.users.user_attributes_user',
 	);
 
 /**
@@ -58,6 +57,7 @@ class PagesControllerTest extends YAControllerTestCase {
 		parent::setUp();
 
 		Configure::write('Config.language', 'ja');
+		YACakeTestCase::loadTestPlugin($this, 'NetCommons', 'TestPlugin');
 
 		$this->generate(
 			'Pages.Pages',
@@ -70,8 +70,6 @@ class PagesControllerTest extends YAControllerTestCase {
 			]
 		);
 		Page::unsetIsSetting();
-
-		YACakeTestCase::loadTestPlugin($this, 'NetCommons', 'TestPlugin');
 	}
 
 /**

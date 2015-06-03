@@ -134,7 +134,7 @@ class Page extends PagesAppModel {
 			'finderQuery' => '',
 		),
 		'Language' => array(
-			'className' => 'Language',
+			'className' => 'M17n.Language',
 			'joinTable' => 'languages_pages',
 			'foreignKey' => 'page_id',
 			'associationForeignKey' => 'language_id',

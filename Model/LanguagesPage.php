@@ -41,7 +41,7 @@ class LanguagesPage extends AppModel {
 			'order' => ''
 		),
 		'Language' => array(
-			'className' => 'Language',
+			'className' => 'M17n.Language',
 			'foreignKey' => 'language_id',
 			'conditions' => '',
 			'fields' => '',
