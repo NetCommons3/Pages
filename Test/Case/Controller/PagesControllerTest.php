@@ -73,6 +73,16 @@ class PagesControllerTest extends YAControllerTestCase {
 	}
 
 /**
+ * tearDown method
+ *
+ * @return void
+ */
+	public function tearDown() {
+		Configure::write('Config.language', null);
+		parent::tearDown();
+	}
+
+/**
  * testIndex method
  *
  * @return void
