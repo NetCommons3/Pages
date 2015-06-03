@@ -87,13 +87,13 @@ class PagesControllerTest extends YAControllerTestCase {
  *
  * @return void
  */
-	//public function testIndex() {
-	//	debug('testIndex');
-	//
-	//	$this->testAction('/', array('return' => 'view'));
-	//	$this->assertTextContains('<div class="box-site">', $this->view);
-	//	$this->assertEquals(5, count($this->vars['page']['container']));
-	//}
+	public function testIndex() {
+		debug('testIndex');
+
+		$this->testAction('/', array('return' => 'view'));
+		$this->assertTextContains('<div class="box-site">', $this->view);
+		$this->assertEquals(5, count($this->vars['page']['container']));
+	}
 
 /**
  * testIndex method
