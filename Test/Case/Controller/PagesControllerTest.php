@@ -56,7 +56,7 @@ class PagesControllerTest extends YAControllerTestCase {
 	public function setUp() {
 		parent::setUp();
 
-		Configure::write('Config.language', 'ja');
+		Configure::write('Config.language', 'en');
 
 		$this->generate(
 			'Pages.Pages',
