@@ -78,6 +78,8 @@ class PagesControllerTest extends YAControllerTestCase {
  * @return void
  */
 	public function testIndex() {
+		debug('testIndex');
+
 		$this->testAction('/', array('return' => 'view'));
 		$this->assertTextContains('<div class="box-site">', $this->view);
 		$this->assertEquals(5, count($this->vars['page']['container']));
@@ -89,6 +91,7 @@ class PagesControllerTest extends YAControllerTestCase {
  * @return void
  */
 	public function testPermalink() {
+		debug('testPermalink');
 		$this->testAction('/test', array('return' => 'vars'));
 
 		$this->assertEquals(1, count($this->vars['page']['container']));
@@ -111,6 +114,7 @@ class PagesControllerTest extends YAControllerTestCase {
  * @return void
  */
 	public function testIndexSetting() {
+		debug('testIndexSetting');
 		RolesControllerTest::login($this);
 
 		$url = '/' . Page::SETTING_MODE_WORD . '/';
@@ -153,6 +157,7 @@ class PagesControllerTest extends YAControllerTestCase {
  * @return void
  */
 	public function testAddError() {
+		debug('testAddError');
 		RolesControllerTest::login($this);
 
 		$roomId = '1';

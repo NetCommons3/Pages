@@ -287,6 +287,9 @@ class Page extends PagesAppModel {
 				)
 			)
 		);
+
+		debug($query);
+
 		return $this->find('first', $query);
 	}
 

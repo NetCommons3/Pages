@@ -81,9 +81,7 @@ class PagesController extends PagesAppController {
 		debug($path);
 		$page = $this->Page->getPageWithFrame($path);
 		if (empty($page)) {
-			//throw new NotFoundException();
-			$this->throwBadRequest();
-			return;
+			throw new NotFoundException();
 		}
 		$page = $this->camelizeKeyRecursive($page);
 		$this->set('page', $page);
