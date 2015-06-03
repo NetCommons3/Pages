@@ -57,7 +57,6 @@ class PagesControllerTest extends YAControllerTestCase {
 		parent::setUp();
 
 		Configure::write('Config.language', 'ja');
-		YACakeTestCase::loadTestPlugin($this, 'NetCommons', 'TestPlugin');
 
 		$this->generate(
 			'Pages.Pages',
@@ -70,6 +69,8 @@ class PagesControllerTest extends YAControllerTestCase {
 			]
 		);
 		Page::unsetIsSetting();
+
+		YACakeTestCase::loadTestPlugin($this, 'NetCommons', 'TestPlugin');
 	}
 
 /**
