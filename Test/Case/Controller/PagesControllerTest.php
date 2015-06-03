@@ -46,6 +46,7 @@ class PagesControllerTest extends YAControllerTestCase {
 		'plugin.rooms.room',
 		'plugin.rooms.room_role_permission',
 		'plugin.users.user',
+		'plugin.users.user_attributes_user',
 	);
 
 /**
@@ -56,7 +57,7 @@ class PagesControllerTest extends YAControllerTestCase {
 	public function setUp() {
 		parent::setUp();
 
-		Configure::write('Config.language', 'en');
+		Configure::write('Config.language', 'ja');
 
 		$this->generate(
 			'Pages.Pages',
