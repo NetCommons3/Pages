@@ -92,6 +92,10 @@ class PagesController extends PagesAppController {
 
 		$language = $this->Language->findByCode(Configure::read('Config.language'));
 		$this->set('languageId', $language['Language']['id']);
+
+		debug('PagesController::index');
+		$this->view = 'index';
+		debug($this->view);
 	}
 
 /**
