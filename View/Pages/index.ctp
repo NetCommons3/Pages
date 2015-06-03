@@ -7,6 +7,9 @@
  * @link http://www.netcommons.org NetCommons Project
  * @license http://www.netcommons.org/license.txt NetCommons License
  */
+
+debug($pageMainContainer['box'][$pageMainContainer['container'][Container::TYPE_MAIN]['id']]);
+
 ?>
 <?php echo $this->Html->script('/pages/js/pages.js', false); ?>
 

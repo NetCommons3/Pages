@@ -88,9 +88,6 @@ class PagesController extends PagesAppController {
 		$page['box'] = Hash::combine($page['box'], '{n}.id', '{n}', '{n}.containerId');
 
 		$page['container'] = array(Container::TYPE_MAIN => $page['container'][Container::TYPE_MAIN]);
-
-		debug($page);
-
 		$this->set('pageMainContainer', $page);
 
 		$language = $this->Language->findByCode(Configure::read('Config.language'));
