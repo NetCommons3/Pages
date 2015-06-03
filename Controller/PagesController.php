@@ -80,7 +80,7 @@ class PagesController extends PagesAppController {
 		debug($paths);
 		debug($path);
 		$page = $this->Page->getPageWithFrame($path);
-		debug($page);
+		debug(empty($page));
 		if (empty($page)) {
 			throw new NotFoundException();
 		}
