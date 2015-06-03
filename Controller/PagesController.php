@@ -77,10 +77,7 @@ class PagesController extends PagesAppController {
 		$paths = func_get_args();
 		$path = implode('/', $paths);
 
-		debug($paths);
-		debug($path);
 		$page = $this->Page->getPageWithFrame($path);
-		debug(empty($page));
 		if (empty($page)) {
 			throw new NotFoundException();
 		}
@@ -91,6 +88,9 @@ class PagesController extends PagesAppController {
 		$page['box'] = Hash::combine($page['box'], '{n}.id', '{n}', '{n}.containerId');
 
 		$page['container'] = array(Container::TYPE_MAIN => $page['container'][Container::TYPE_MAIN]);
+
+		debug($page);
+
 		$this->set('pageMainContainer', $page);
 
 		$language = $this->Language->findByCode(Configure::read('Config.language'));
