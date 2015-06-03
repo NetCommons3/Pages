@@ -90,9 +90,13 @@ class PagesControllerTest extends YAControllerTestCase {
 	public function testIndex() {
 		debug('testIndex');
 
+		RolesControllerTest::login($this);
+
 		$this->testAction('/', array('return' => 'view'));
 		$this->assertTextContains('<div class="box-site">', $this->view);
 		$this->assertEquals(5, count($this->vars['page']['container']));
+
+		AuthGeneralControllerTest::logout($this);
 	}
 
 /**
