@@ -169,3 +169,9 @@ msgstr "%sページとそのページに紐づく配置データを削除しま�
 
 msgid "Delete all data associated with the %s."
 msgstr "この%sに関連するデータをすべて削除します。一度削除すると元に戻せません。<br />ただし、ページを削除するのみで、コンテンツに関するデータは削除しません。"
+
+msgid "Top"
+msgstr "一番上へ"
+
+msgid "Bottom"
+msgstr "一番下へ"

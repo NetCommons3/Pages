@@ -43,7 +43,7 @@ echo $this->NetCommonsHtml->css('/pages/css/style.css');
 		<?php echo $this->NetCommonsForm->hidden('Page.type'); ?>
 		<?php echo $this->NetCommonsForm->unlockField('Page.type'); ?>
 
-		<div class="table-responsive">
+		<div class="table-responsive page-table-responsive">
 			<table class="table table-hover pages-edit-index" ng-controller="PagesEditController" ng-cloak
 					ng-init="initialize(<?php echo h(json_encode($pages)) . ', ' . h(json_encode($treeList)) . ', ' . h(json_encode($parentList)); ?>)">
 				<thead>
@@ -85,14 +85,33 @@ echo $this->NetCommonsHtml->css('/pages/css/style.css');
 										<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"> </span>
 									</button>
 								</span>
-
-								<span class="pages-move" ng-show="indented(pageId)">
-									<button type="button" class="btn btn-default btn-xs"
-											ng-disabled="moveDisabled('move', pageId)" ng-click="showMoveDialog(pageId)">
-										<?php echo __d('net_commons', 'Move'); ?>
+								<span class="dropdown pages-move" ng-show="indented(pageId)">
+									<button class="btn btn-default dropdown-toggle btn-xs "
+											type="button"
+											id="{{'pages-dropdown-' + pageId}}"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="true">
+										<span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
 									</button>
+									<ul class="dropdown-menu"
+										ria-labelledby="{{'pages-dropdown-' + pageId}}">
+										<li>
+											<a href="#" ng-click="saveWeight('top', pageId)" ng-hide="moveDisabled('top', pageId)">
+												<?php echo __d('pages', 'Top'); ?>
+											</a>
+										</li>
+										<li>
+											<a href="#" ng-click="saveWeight('bottom', pageId)" ng-hide="moveDisabled('bottom', pageId)">
+												<?php echo __d('pages', 'Bottom'); ?>
+											</a>
+										</li>
+										<li>
+											<a href="#" ng-click="showMoveDialog(pageId)" ng-hide="moveDisabled('move', pageId)">
+												<?php echo __d('net_commons', 'Move'); ?>
+											</a>
+										</li>
+									</ul>
 								</span>
-
 								<a class="page-edit-index-page-name {{pages[pageId]['pageNameCss']}}"
 									ng-href="<?php echo $this->NetCommonsHtml->url('/') . '{{permalink(pageId)}}'; ?>">
 									{{pages[pageId]['PagesLanguage']['name']}}

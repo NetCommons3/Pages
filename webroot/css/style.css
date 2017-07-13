@@ -63,3 +63,6 @@
 .page-tree-leaf-page {
 	border-left: 3px #aca899 solid;
 }
+.page-table-responsive {
+	overflow: auto;
+}

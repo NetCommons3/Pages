@@ -228,6 +228,12 @@ class SavePageBehavior extends ModelBehavior {
 				$result = $model->moveUp($model->id, 1);
 			} elseif ($data[$model->alias]['type'] === 'down') {
 				$result = $model->moveDown($model->id, 1);
+			} elseif ($data[$model->alias]['type'] === 'top') {
+				$childCount = $model->childCount($data[$model->alias]['parent_id'], true);
+				$result = $model->moveUp($model->id, $childCount);
+			} elseif ($data[$model->alias]['type'] === 'bottom') {
+				$childCount = $model->childCount($data[$model->alias]['parent_id'], true);
+				$result = $model->moveDown($model->id, $childCount);
 			} elseif ($data[$model->alias]['type'] === 'move') {
 				$result = $model->saveField('parent_id', $data[$model->alias]['parent_id']);
 			} else {

@@ -146,3 +146,8 @@ msgstr ""
 msgid "Page not found."
 msgstr ""
 
+msgid "Top"
+msgstr ""
+
+msgid "Bottom"
+msgstr ""

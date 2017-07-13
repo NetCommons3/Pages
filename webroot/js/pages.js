@@ -103,13 +103,13 @@ NetCommonsApp.controller('PagesEditController',
         var parentId = $scope.pages[pageId]['Page']['parent_id'];
         var parentList = $scope.parentList['_' + parentId];
 
-        if (type === 'up') {
+        if (type === 'up' || type === 'top') {
           if (parentList['_' + pageId]['weight'] == 1) {
             return true;
           } else {
             return false;
           }
-        } else if (type === 'down') {
+        } else if (type === 'down' || type === 'bottom') {
           var maxWeight = 0;
           angular.forEach(parentList, function(page) {
             maxWeight = page['weight'];
