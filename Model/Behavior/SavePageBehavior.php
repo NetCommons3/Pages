@@ -242,7 +242,9 @@ class SavePageBehavior extends ModelBehavior {
 				$childCount = $model->childCount($data[$model->alias]['parent_id'], true);
 				$result = $model->moveDown($model->id, $childCount);
 			} elseif ($data[$model->alias]['type'] === 'move') {
-				$result = $model->saveField('parent_id', $data[$model->alias]['parent_id']);
+				//callbacksは必要
+				$result =
+					$model->saveField('parent_id', $data[$model->alias]['parent_id'], ['callbacks' => true]);
 			} else {
 				$result = false;
 			}
