@@ -344,9 +344,9 @@ class Page extends PagesAppModel {
  */
 	public function afterSave($created, $options = array()) {
 		if (Hash::get($this->data, 'Page.id') &&
-				Hash::get($this->data, 'Page.slug') !== Current::read('Page.slug')) {
+				Hash::get($this->data, 'Page.permalink')) {
 			$chidren = $this->children(
-				Hash::get($this->data, 'Page.id'), false, array('Page.id', 'Page.permalink')
+				Hash::get($this->data, 'Page.id'), false, array('Page.id', 'Page.permalink', 'Page.slug')
 			);
 
 			$data = $this->data;
@@ -354,13 +354,11 @@ class Page extends PagesAppModel {
 			foreach ($chidren as $child) {
 				$this->id = $child[$this->alias]['id'];
 
-				$pattern = '/^' . preg_quote(Current::read('Page.permalink') . '/', '/') . '/';
-				$permalink = preg_replace(
-					$pattern, Hash::get($data, 'Page.permalink') . '/', $child[$this->alias]['permalink']
-				);
-
-				if (! $this->saveField('permalink', $permalink, array('callbacks' => false))) {
-					throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
+				$permalink = Hash::get($data, 'Page.permalink') . '/' . $child[$this->alias]['slug'];
+				if ($permalink !== $child[$this->alias]['permalink']) {
+					if (! $this->saveField('permalink', $permalink, array('callbacks' => false))) {
+						throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
+					}
 				}
 			}
 
