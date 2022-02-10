@@ -219,6 +219,7 @@ class SavePageBehavior extends ModelBehavior {
  * @param array $data request data
  * @return bool
  * @throws InternalErrorException
+ * @SuppressWarnings(PHPMD.CyclomaticComplexity)
  */
 	public function saveMove(Model $model, $data) {
 		//トランザクションBegin
