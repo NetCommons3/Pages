@@ -243,8 +243,19 @@ class SavePageBehavior extends ModelBehavior {
 				$result = $model->moveDown($model->id, $childCount);
 			} elseif ($data[$model->alias]['type'] === 'move') {
 				//callbacksは必要
-				$result =
-					$model->saveField('parent_id', $data[$model->alias]['parent_id'], ['callbacks' => true]);
+				$permalink =
+					$model->getParentPermalink($data['Page']) . '/' . Current::read('Page.slug');
+				if (substr($permalink, 0, 1) === '/') {
+					$permalink = substr($permalink, 1);
+				}
+				$data[$model->alias]['permalink'] = $permalink;
+				$model->create(false);
+				$options = [
+					'validate' => false,
+					'fieldList' => ['parent_id', 'permalink'],
+					'callbacks' => true
+				];
+				$result = $model->save($data, $options);
 			} else {
 				$result = false;
 			}
