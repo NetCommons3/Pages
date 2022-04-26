@@ -53,7 +53,7 @@ class PagesEditController extends PagesAppController {
 	public $components = array(
 		'NetCommons.Permission' => array(
 			'allow' => array(
-				'index,add,edit,delete,layout,add_m17n' => 'page_editable',
+				'*' => 'page_editable',
 			),
 		),
 		'Pages.PageLayout',
