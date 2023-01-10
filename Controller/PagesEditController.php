@@ -660,21 +660,22 @@ class PagesEditController extends PagesAppController {
  * @return bool
  */
 	private function __hasDeleteThisPage() {
-		$activeLangs = $this->Language->getLanguages();
-		if (! Current::read('Space.is_m17n') && count($activeLangs) <= 1) {
-			return false;
-		}
-
-		$hasDeletePage = $this->__hasDeletePage();
-		if (! $hasDeletePage) {
-			return false;
-		}
-
-		$activeLangIds = Hash::extract($activeLangs, '{n}.Language.id');
-
-		$pageIdsM17n = $this->Page->getPageIdsWithM17n(Current::read('Page.id'));
-
-		return (bool)array_diff($activeLangIds, Hash::get($pageIdsM17n, Current::read('Page.id'), []));
+		return false;
+		//$activeLangs = $this->Language->getLanguages();
+		//if (! Current::read('Space.is_m17n') && count($activeLangs) <= 1) {
+		//	return false;
+		//}
+		//
+		//$hasDeletePage = $this->__hasDeletePage();
+		//if (! $hasDeletePage) {
+		//	return false;
+		//}
+		//
+		//$activeLangIds = Hash::extract($activeLangs, '{n}.Language.id');
+		//
+		//$pageIdsM17n = $this->Page->getPageIdsWithM17n(Current::read('Page.id'));
+		//
+		//return (bool)array_diff($activeLangIds, Hash::get($pageIdsM17n, Current::read('Page.id'), []));
 	}
 
 }
